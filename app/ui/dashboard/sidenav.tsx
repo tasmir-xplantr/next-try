@@ -3,8 +3,15 @@ import NavLinks from '@/app/ui/dashboard/nav-links';
 import AcmeLogo from '@/app/ui/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
+import { auth } from '@/auth';
 
 export default function SideNav() {
+
+  auth().then(result => {
+    console.log("auth =======", result);
+  }).catch(error => {
+    console.error("Error occurred while getting auth data:", error);
+  });
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
